@@ -1,0 +1,191 @@
+/* ==========================================================
+   Gear & Chain Cycle Works - stylesheet
+   Order: 1 base, 2 layout helpers, 3 header, 4 hero,
+          5 sections/cards, 6 table, 7 sidebar, 8 footer,
+          9 media queries
+   ========================================================== */
+
+/* 1. Base ---------------------------------------------------*/
+:root {
+  --navy: #086bf6;
+  --yellow: #f2c230;
+  --text: #25303b;
+  --muted: #5c6773;
+  --bg: #ffffff;
+  --bg-soft: #eef2f5;
+  --line: #d5dce2;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+}
+
+h1, h2, h3 { line-height: 1.2; color: var(--navy); margin: 0 0 0.6em; }
+h1 { font-size: 2.6rem; }
+h2 { font-size: 1.7rem; }
+h3 { font-size: 1.15rem; }
+p  { margin: 0 0 1em; }
+a  { color: var(--navy); }
+a:focus-visible, .btn:focus-visible { outline: 3px solid var(--yellow); outline-offset: 2px; }
+
+/* 2. Layout helper ------------------------------------------*/
+.wrap {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* 3. Header -------------------------------------------------*/
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--navy);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+}
+.logo {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.15rem;
+  text-decoration: none;
+}
+.logo span { font-weight: 400; color: var(--yellow); }
+
+.nav-list {
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.nav-list a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+}
+.nav-list a:hover { border-bottom-color: var(--yellow); }
+
+/* 4. Hero ---------------------------------------------------*/
+.hero { background: var(--bg-soft); padding: 4rem 0; }
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 2.5rem;
+}
+.hero-text p:first-of-type { font-size: 1.15rem; max-width: 34rem; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+.hero-art svg { display: block; width: 100%; height: auto; }
+
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.btn-primary { background: var(--yellow); color: #1b1b1b; }
+.btn-primary:hover { background: #e0b022; }
+.btn-plain { border: 2px solid var(--navy); color: var(--navy); }
+.btn-plain:hover { background: var(--navy); color: #fff; }
+
+/* 5. Sections and cards -------------------------------------*/
+.section { padding: 4rem 0 3rem; }
+.section-tight { margin-bottom: 3rem; }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.card {
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--yellow);
+}
+.card p { margin: 0; color: var(--muted); }
+
+/* content + sidebar */
+.content-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 3rem;
+  padding-bottom: 3rem;
+}
+.content-main p { max-width: 38rem; }
+
+/* 6. Price table --------------------------------------------*/
+.table-scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+caption { text-align: left; color: var(--muted); font-size: 0.9rem; padding-bottom: 0.6rem; }
+th, td { text-align: left; padding: 0.7rem 0.9rem; border-bottom: 1px solid var(--line); }
+thead th { background: var(--navy); color: #fff; font-weight: 600; }
+tbody tr:nth-child(even) { background: var(--bg-soft); }
+th:last-child, td:last-child { text-align: right; }
+
+/* 7. Sidebar ------------------------------------------------*/
+.side-box {
+  background: var(--bg-soft);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+}
+.hours { display: grid; grid-template-columns: auto 1fr; gap: 0.35rem 1rem; margin: 0; }
+.hours dt { font-weight: 600; }
+.hours dd { margin: 0; }
+address { font-style: normal; }
+
+/* 8. Footer -------------------------------------------------*/
+.site-footer { background: var(--navy); color: #d7e0ea; padding: 2rem 0; }
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.75rem 2rem;
+  align-items: center;
+}
+.footer-name { color: #fff; font-weight: 700; margin: 0; }
+.footer-links { display: flex; gap: 1.25rem; margin: 0; padding: 0; list-style: none; }
+.footer-links a { color: #d7e0ea; }
+.footer-small { grid-column: 1 / -1; margin: 0; font-size: 0.85rem; }
+
+/* 9. Media queries (desktop-first) --------------------------*/
+@media (max-width: 900px) {
+  h1 { font-size: 2.1rem; }
+  .hero { padding: 3rem 0; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-art { max-width: 320px; }
+  .card-grid { grid-template-columns: 1fr; }
+  .content-layout { grid-template-columns: 1fr; gap: 0; }
+}
+
+@media (max-width: 600px) {
+  .header-inner { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .nav-list { gap: 1rem; flex-wrap: wrap; }
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.45rem; }
+  .section { padding: 2.5rem 0 2rem; }
+  .btn { width: 100%; text-align: center; }
+  .footer-inner { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
